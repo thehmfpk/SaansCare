@@ -1,22 +1,19 @@
 # SaansCare
 ### An Intelligent Environmental Health Monitoring and Public Health Risk Prediction System
 
-**Team SaansCare** — Hafiz Muhammad Faizan · Huma Aslam
-Department of Software Engineering, Lahore Garrison University, Lahore, Pakistan
-
 ---
 
 ## Project Overview & Problem Statement
 
-Lahore is consistently ranked among the most polluted cities in the world — it recorded the highest AQI globally on a single day in November 2024. During the 2024–2025 winter smog season, 98% of outpatients at a Lahore hospital reported at least one pollution-related symptom (shortness of breath 74%, eye irritation 56%, coughing 53%).
+Lahore is consistently ranked among the most polluted cities in the world. it recorded the highest AQI globally on a single day in November 2024. During the 2024–2025 winter smog season, 98% of outpatients at a Lahore hospital reported at least one pollution-related symptom (shortness of breath 74%, eye irritation 56%, coughing 53%).
 
-Punjab EPA already operates 59 monitoring stations and publishes live AQI readings — the data infrastructure exists. What's missing is a way to turn population-level numbers into individual decisions. Three gaps define the current situation:
+Punjab EPA already operates 59 monitoring stations and publishes live AQI readings the data infrastructure exists. What's missing is a way to turn population-level numbers into individual decisions. Three gaps define the current situation:
 
 1. **No personalization** — a 7-year-old with asthma and a healthy adult in the same neighborhood receive the same AQI figure and the same generic advice.
 2. **No pollution-aware navigation** — no app in Pakistan accounts for air quality when suggesting a commute route; people take the shortest or fastest route with no regard for exposure.
 3. **Reactive vehicle emission enforcement** — owners act only once smoke is visible or an inspection is due, with no way to check emission health proactively.
 
-The public health response today is reactive: advisories are issued only after conditions become hazardous, schools close only once smog is already heavy, and no tool tells an individual — especially children, asthma or heart patients — whether it is personally safe to go outside.
+The public health response today is reactive: advisories are issued only after conditions become hazardous, schools close only once smog is already heavy, and no tool tells an individual especially children, asthma or heart patients whether it is personally safe to go outside.
 
 ## Proposed Solution
 
@@ -25,9 +22,9 @@ SaansCare is a role-based web platform powered by **four independently trained m
 - **AQI Forecasting Model** — predicts next-day and weekly district-level air quality.
 - **Personalized Health Risk Classifier** — combines current AQI with a user's age group and medical condition into a personal risk tier (Low/Moderate/High/Very High) with tailored precautions.
 - **Vehicle Emission Classifier & Green Score** — classifies a registered vehicle's emission tier and produces a composite 0–100 Green Score with a downloadable certificate.
-- **Route Health Risk Classifier** (primary research contribution) — paired with a pollution-aware route optimizer, classifies a commuter's full journey as Safe, Caution, or Avoid instead of a single raw AQI number.
+- **Route Health Risk Classifier** (primary research contribution) paired with a pollution-aware route optimizer, classifies a commuter's full journey as Safe, Caution, or Avoid instead of a single raw AQI number.
 
-Training data is drawn from multiple public sources rather than a single feed — Punjab EPA/aqicn.org historical AQI readings, Kaggle and other publicly published air-quality and vehicle-emission datasets, US EPA and UK DVSA vehicle certification data, and OpenStreetMap's Lahore road network. Where no ready-made dataset exists — most notably the route-level exposure data behind the Route Health Classifier — the team builds it directly: real AQI and weather readings are combined with the real Lahore road network and a documented exposure-scoring rule to produce a labelled dataset purpose-built for this project. No arbitrary or fabricated figures are used anywhere in the pipeline.
+Training data is drawn from multiple public sources rather than a single feed Punjab EPA/aqicn.org historical AQI readings, Kaggle and other publicly published air-quality and vehicle-emission datasets, US EPA and UK DVSA vehicle certification data, and OpenStreetMap's Lahore road network. Where no ready-made dataset exists most notably the route-level exposure data behind the Route Health Classifier the team builds it directly: real AQI and weather readings are combined with the real Lahore road network and a documented exposure-scoring rule to produce a labelled dataset purpose-built for this project. No arbitrary or fabricated figures are used anywhere in the pipeline.
 
 ## Objectives & Expected Outcomes
 
@@ -35,7 +32,7 @@ Training data is drawn from multiple public sources rather than a single feed �
 - Enable pollution-aware commute planning so residents can choose the lowest-exposure route between two points in the city.
 - Give vehicle owners a structured, data-driven view of their vehicle's emission health before a PUC test or inspection.
 - Give Punjab EPA and government officials city-wide, district-level analytics (AQI trends, Green Score aggregates, emission-tier breakdowns) to plan smog-season interventions proactively rather than reactively.
-- Demonstrate that genuinely trained ML models — built on a mix of public datasets and a purpose-built route dataset, not formula-only heuristics — can deliver real-time, personalized environmental health guidance at city scale.
+- Demonstrate that genuinely trained ML models built on a mix of public datasets and a purpose-built route dataset, not formula-only heuristics — can deliver real-time, personalized environmental health guidance at city scale.
 
 ## Target Users
 
@@ -58,13 +55,13 @@ Training data is drawn from multiple public sources rather than a single feed �
 
 Developed using an **Agile methodology** across five phases, with the ML pipeline and application layer proceeding in parallel sprints and integration milestones at the end of each phase.
 
-| Phase | Focus | Timeline |
+| Phase | Focus |
 |---|---|---|
-| **1. Planning & Setup** | System architecture, database schema, dataset collection (EPA/aqicn, Kaggle, EPA/DVSA), labelled route dataset groundwork | Month 1 |
-| **2. ML Model Development** | Train & evaluate all four models; document evaluation metrics and model comparisons | Months 1–4 |
-| **3. Application Development** | Build all three portals; connect the Python model-serving layer to the Node.js backend | Months 3–5 |
-| **4. Route Optimizer Integration** | Integrate OSMnx road network + spatial AQI interpolation + modified Dijkstra/A\* routing with the route classifier | Months 4–5 |
-| **5. Testing & Finalization** | End-to-end testing, user acceptance testing, performance testing, final documentation | Month 5 |
+| **1. Planning & Setup** | System architecture, database schema, dataset collection (EPA/aqicn, Kaggle, EPA/DVSA), labelled route dataset groundwork |
+| **2. ML Model Development** | Train & evaluate all four models; document evaluation metrics and model comparisons |
+| **3. Application Development** | Build all three portals; connect the Python model-serving layer to the Node.js backend |
+| **4. Route Optimizer Integration** | Integrate OSMnx road network + spatial AQI interpolation + modified Dijkstra/A\* routing with the route classifier |
+| **5. Testing & Finalization** | End-to-end testing, user acceptance testing, performance testing, final documentation |
 
 ## Resources or Requirements
 
@@ -103,4 +100,14 @@ SaansCare aligns with three UN Sustainable Development Goals:
 - **SDG 11 (Sustainable Cities & Communities)** — pollution-aware routing and vehicle emission scoring support cleaner urban mobility.
 - **SDG 13 (Climate Action)** — emissions and exposure data generated by the platform can inform smog-season mitigation policy.
 
-This project is also being developed as the team's Final Year Project at Lahore Garrison University, which means the models and datasets described above are being built to genuine academic rigor — independently trained, evaluated, and documented — rather than as a one-off hackathon demo.
+This project is also being developed as the team's Final Year Project at Lahore Garrison University, which means the models and datasets described above are being built to genuine academic rigor independently trained, evaluated, and documented rather than as a one-off hackathon demo.
+
+## Team SaansCare
+
+ - Hafiz Muhammad Faizan · Huma Aslam
+
+Department of Software Engineering
+
+Lahore Garrison University
+
+Lahore, Pakistan
