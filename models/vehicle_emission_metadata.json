@@ -1,0 +1,163 @@
+{
+  "model": "Vehicle emission tier (Random Forest (tuned)) + Green Score (XGBoost)",
+  "tier_labels": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "profile_features": [
+    "age",
+    "engine_cc",
+    "weight_kg",
+    "odometer_km",
+    "km_per_year",
+    "months_since_service",
+    "months_since_smoke_test",
+    "vehicle_type",
+    "make",
+    "model",
+    "fuel_type",
+    "emission_standard"
+  ],
+  "num_features": [
+    "age",
+    "engine_cc",
+    "weight_kg",
+    "odometer_km",
+    "km_per_year",
+    "months_since_service",
+    "months_since_smoke_test"
+  ],
+  "cat_features": [
+    "vehicle_type",
+    "make",
+    "model",
+    "fuel_type",
+    "emission_standard"
+  ],
+  "reference_year": 2026,
+  "metrics_tier_test": {
+    "accuracy": 0.8936666666666667,
+    "precision_macro": 0.8981144416331212,
+    "recall_macro": 0.8952831896614745,
+    "f1_macro": 0.8962437109978395,
+    "f1_weighted": 0.893850210146009,
+    "exact": 0.8936666666666667,
+    "under_warning": 0.063,
+    "over_warning": 0.043333333333333335
+  },
+  "metrics_green_score_test": {
+    "RMSE": 5.174762718704217,
+    "MAE": 3.3392397392908726,
+    "R2": 0.922768130066211
+  },
+  "validation_comparison": [
+    {
+      "feature_set": "full (with measured emissions)",
+      "model": "XGBoost",
+      "accuracy": 0.981,
+      "precision_macro": 0.981,
+      "recall_macro": 0.981,
+      "f1_macro": 0.981,
+      "f1_weighted": 0.981,
+      "exact": 0.981,
+      "under_warning": 0.007,
+      "over_warning": 0.012,
+      "seconds": 3.7
+    },
+    {
+      "feature_set": "full (with measured emissions)",
+      "model": "Decision Tree",
+      "accuracy": 0.959,
+      "precision_macro": 0.959,
+      "recall_macro": 0.96,
+      "f1_macro": 0.96,
+      "f1_weighted": 0.959,
+      "exact": 0.959,
+      "under_warning": 0.018,
+      "over_warning": 0.023,
+      "seconds": 0.7
+    },
+    {
+      "feature_set": "full (with measured emissions)",
+      "model": "Random Forest",
+      "accuracy": 0.959,
+      "precision_macro": 0.961,
+      "recall_macro": 0.96,
+      "f1_macro": 0.96,
+      "f1_weighted": 0.959,
+      "exact": 0.959,
+      "under_warning": 0.019,
+      "over_warning": 0.021,
+      "seconds": 16.5
+    },
+    {
+      "feature_set": "full (with measured emissions)",
+      "model": "Logistic Regression",
+      "accuracy": 0.939,
+      "precision_macro": 0.94,
+      "recall_macro": 0.94,
+      "f1_macro": 0.94,
+      "f1_weighted": 0.939,
+      "exact": 0.939,
+      "under_warning": 0.029,
+      "over_warning": 0.032,
+      "seconds": 1.6
+    },
+    {
+      "feature_set": "profile",
+      "model": "Logistic Regression",
+      "accuracy": 0.883,
+      "precision_macro": 0.885,
+      "recall_macro": 0.887,
+      "f1_macro": 0.886,
+      "f1_weighted": 0.883,
+      "exact": 0.883,
+      "under_warning": 0.056,
+      "over_warning": 0.06,
+      "seconds": 0.5
+    },
+    {
+      "feature_set": "profile",
+      "model": "Random Forest",
+      "accuracy": 0.883,
+      "precision_macro": 0.886,
+      "recall_macro": 0.885,
+      "f1_macro": 0.885,
+      "f1_weighted": 0.883,
+      "exact": 0.883,
+      "under_warning": 0.065,
+      "over_warning": 0.052,
+      "seconds": 17.7
+    },
+    {
+      "feature_set": "profile",
+      "model": "XGBoost",
+      "accuracy": 0.878,
+      "precision_macro": 0.881,
+      "recall_macro": 0.881,
+      "f1_macro": 0.881,
+      "f1_weighted": 0.878,
+      "exact": 0.878,
+      "under_warning": 0.067,
+      "over_warning": 0.055,
+      "seconds": 2.9
+    },
+    {
+      "feature_set": "profile",
+      "model": "Decision Tree",
+      "accuracy": 0.869,
+      "precision_macro": 0.872,
+      "recall_macro": 0.873,
+      "f1_macro": 0.872,
+      "f1_weighted": 0.869,
+      "exact": 0.869,
+      "under_warning": 0.064,
+      "over_warning": 0.067,
+      "seconds": 0.4
+    }
+  ],
+  "note": "Tier and Green Score derive from a documented rule on emissions; trained on simulated/mixed data - not a regulatory test.",
+  "version": "1.0",
+  "random_state": 42
+}
