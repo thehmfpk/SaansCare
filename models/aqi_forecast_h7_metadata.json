@@ -1,0 +1,111 @@
+{
+  "model": "AQI forecasting (XGBoost)",
+  "horizon_days": 7,
+  "features": [
+    "pm25",
+    "pm10",
+    "no2",
+    "so2",
+    "co",
+    "o3",
+    "temperature",
+    "humidity",
+    "wind_speed",
+    "pressure",
+    "rainfall",
+    "wd_sin",
+    "wd_cos",
+    "pm25_lag1",
+    "pm25_lag2",
+    "pm25_lag3",
+    "pm25_lag7",
+    "pm25_lag14",
+    "pm25_roll3",
+    "pm25_roll7",
+    "pm25_roll14",
+    "pm25_std7",
+    "pm25_diff1",
+    "dow",
+    "is_weekend",
+    "month_sin",
+    "month_cos",
+    "doy_sin",
+    "doy_cos",
+    "zone"
+  ],
+  "num_features": [
+    "pm25",
+    "pm10",
+    "no2",
+    "so2",
+    "co",
+    "o3",
+    "temperature",
+    "humidity",
+    "wind_speed",
+    "pressure",
+    "rainfall",
+    "wd_sin",
+    "wd_cos",
+    "pm25_lag1",
+    "pm25_lag2",
+    "pm25_lag3",
+    "pm25_lag7",
+    "pm25_lag14",
+    "pm25_roll3",
+    "pm25_roll7",
+    "pm25_roll14",
+    "pm25_std7",
+    "pm25_diff1",
+    "dow",
+    "is_weekend",
+    "month_sin",
+    "month_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "cat_features": [
+    "zone"
+  ],
+  "target": "pm25 (ug/m3) at t+7; convert to AQI with EPA breakpoints",
+  "zones": [
+    "Cantt",
+    "DHA Phase 5",
+    "Data Ganj Bakhsh",
+    "Faisal Town",
+    "Gulberg",
+    "Johar Town",
+    "Model Town",
+    "Samanabad",
+    "Shahdara",
+    "Thokar Niaz Baig",
+    "Township",
+    "Wapda Town"
+  ],
+  "trained_on_dates": [
+    "2023-01-01",
+    "2026-10-31"
+  ],
+  "metrics_test": {
+    "RMSE": 24.52423480428734,
+    "MAE": 16.222668232768463,
+    "R2": 0.480253488444779,
+    "AQI_category_acc": 0.5136876006441223
+  },
+  "baselines_test": {
+    "Persistence": {
+      "RMSE": 28.704632675151956,
+      "MAE": 19.02600983289389,
+      "R2": 0.28795959366166,
+      "AQI_category_acc": 0.4690016103059581
+    },
+    "7-day mean": {
+      "RMSE": 30.411560184143156,
+      "MAE": 19.051296232395266,
+      "R2": 0.2007584487951385,
+      "AQI_category_acc": 0.43800322061191627
+    }
+  },
+  "version": "1.0",
+  "random_state": 42
+}
