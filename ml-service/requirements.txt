@@ -1,0 +1,9 @@
+# Python 3.10 - 3.13.   scikit-learn MUST be 1.6.1: the .joblib models were trained with that exact version (Google Colab).
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+scikit-learn==1.6.1
+xgboost==3.4.1
+numpy>=1.26
+pandas>=2.1
+joblib>=1.3
